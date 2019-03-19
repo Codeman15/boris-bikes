@@ -1,8 +1,6 @@
 class DockingStation
-attr_reader :bike
-  #def bike
-    #@bike
-  #end
+attr_reader :bikes
+
   def initialize
     @bikes = []
   end
@@ -17,11 +15,10 @@ attr_reader :bike
     @bikes << bike
   end
 
-  def bike
-    @bike
+  def full?
+    true if @bikes.count >= 20
   end
 end
-
 
 
 #puts docking_station = DockingStation.new
