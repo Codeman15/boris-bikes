@@ -1,13 +1,23 @@
 class DockingStation
+#when an instance of docking staion is created it has a capacity
+# and the abilty to store bikes
+def initialize(capacity = DEFAULT_CAPACITY)
+  @capacity = capacity
+  @bikes = []
+end
+#def bikes
+#  @bikes
+#end
 attr_reader :bikes
+#def capacity
+#  @capacity
+#end
+attr_reader :capacity
 ::DEFAULT_CAPACITY = 20
-
-  def initialize
-    @bikes = []
-  end
 
   def release_bike
     fail 'No bikes available' if empty?
+    fail 'Bike is broken' unless @bikes.last.working?
     @bikes.pop
   end
 
